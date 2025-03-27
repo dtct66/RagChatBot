@@ -2,7 +2,14 @@
 Django==4.0.2
 djangorestframework
 djangorestframework-simplejwt
+django-cors-headers
 
 # 引数設定・データベース
 python-dotenv
 psycopg2-binary
+
+# AI関連
+langchain-huggingface
+langchain-community
+faiss-cpu
+openai

@@ -27,6 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-8+koql_+q#*8ubtih5a$4atxsjwqmr5h)te@@#z%!m)d0*$v49'
 
+
+# ragのベクトル保存のpath
+FAISS_INDEX_PATH = os.path.join(BASE_DIR, 'chat', 'rag', 'faiss_index', 'index.faiss')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -49,6 +53,9 @@ INSTALLED_APPS = [
     
     #アカウントアプリ
     'accounts.apps.AccountsConfig', 
+    'chat.apps.ChatConfig',
+    
+    'corsheaders',
 ]
 
 
@@ -67,10 +74,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# CORSを許可するドメイン（フロントエンドのドメインを指定）
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000", 
+]
 
 TEMPLATES = [
     {
