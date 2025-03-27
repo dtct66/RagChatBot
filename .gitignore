@@ -1,0 +1,12 @@
+# backend
+# Python/Django用
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv
+
+
+# backend/accounts/migrations/
+/backend/accounts/migrations/*
+!/backend/accounts/migrations/__init__.py

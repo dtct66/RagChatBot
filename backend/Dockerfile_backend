@@ -1,0 +1,22 @@
+# Pythonの公式イメージをベースにする
+FROM python:3.11
+
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# 環境変数設定（Djangoのバッファリングを無効化）
+ENV PYTHONUNBUFFERED=1
+
+
+# 作業ディレクトリを指定
+WORKDIR /app/backend
+
+# 必要なパッケージをコピーしてインストール
+COPY ./backend/requirements.txt /app/backend/requirements.txt
+
+
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+
+# エントリーポイント（コンテナ起動時にサーバーを立ち上げる）
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

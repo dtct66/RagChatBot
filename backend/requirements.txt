@@ -1,0 +1,8 @@
+# Django + DRF
+Django==4.0.2
+djangorestframework
+djangorestframework-simplejwt
+
+# 引数設定・データベース
+python-dotenv
+psycopg2-binary
