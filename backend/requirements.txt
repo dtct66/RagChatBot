@@ -6,3 +6,9 @@ djangorestframework-simplejwt
 # 引数設定・データベース
 python-dotenv
 psycopg2-binary
+
+# AI関連
+langchain-huggingface
+langchain-community
+faiss-cpu
+openai

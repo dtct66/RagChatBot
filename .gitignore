@@ -10,3 +10,10 @@ venv
 # backend/accounts/migrations/
 /backend/accounts/migrations/*
 !/backend/accounts/migrations/__init__.py
+
+
+#backend/rag
+# rag documents
+/backend/chat/rag/documents/*
+# rag faiss_index
+/backend/chat/rag/faiss_index/*

@@ -8,6 +8,9 @@ from .models import Message
 from .serializers import MessageSerializer
 
 
+from .rag.search_and_answer import answer_query
+
+
 class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all().order_by('created_at')
     serializer_class = MessageSerializer
@@ -35,7 +38,7 @@ class MessageViewSet(viewsets.ModelViewSet):
         user_msg = Message.objects.create(user=user, text=user_message, is_bot=False)
         
         try:
-            bot_response_text = 'this message is bot'
+            bot_response_text = answer_query(user_message)
 
             
             
