@@ -44,7 +44,7 @@ def generate_answer(query, documents):
     response = openai.chat.completions.create(
         model=OPENAI_MODEL,
         messages=[
-            {"role": "system", "content": "あなたは有能なアシスタントです。以下の情報を参考にしてユーザの質問に回答して"},
+            {"role": "system", "content": "あなたは有能なアシスタントです。以下の情報を参考にしてユーザの質問に50字以内で回答して"},
             {"role": "assistant", "content": context},
             {"role": "user", "content": f"質問を入力してください: {query}"},
         ],
