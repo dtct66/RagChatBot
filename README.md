@@ -1,30 +1,27 @@
-# RAG Chatbot
-
+# ローカル用 AIチャットボット
 ## 概要
-このプロジェクトは、**Retrieval-Augmented Generation (RAG)** を活用したチャットボットアプリケーションです。  
-ユーザー認証機能を備え、Django REST Framework（DRF）をバックエンド、Reactをフロントエンドとして使用しています。
-
-## 特徴
-- **RAG (Retrieval-Augmented Generation)** により、事前に学習されたデータと検索結果を組み合わせた自然な応答を生成
-- **ユーザー認証機能**（登録・ログイン・ログアウト・アカウント削除）
-- **Docker対応**により、環境構築が容易
-- **Django REST Framework (DRF)** によるAPI設計
-- **React** によるフロントエンド
+Django + React + PostgreSQL を使ったAIチャットボットアプリ。  
+ローカル環境で動作し、RAG（Retrieval-Augmented Generation）を活用した応答を行う。  
+技術学習のために作成。
 
 ## 技術スタック
-- **バックエンド:** Django, Django REST Framework (DRF)
-- **フロントエンド:** React
-- **データベース:** PostgreSQL
-- **環境構築:** Docker, Docker Compose
-- **LLM (大規模言語モデル):** OpenAI API 
+- Backend: Django, PostgreSQL, LangChain, OpenAI API
+- Frontend: React (Vite)
+- Infrastructure: Docker, Docker Compose
 
-## インストール & セットアップ
+## 主な機能
+- ユーザー認証
+- チャット履歴保存
+- 外部データを活用したRAG応答
 
-### 1. リポジトリをクローン
-```bash
-git clone git@github.com:dtct66/RagChatBot.git
-cd ragchatbot
-```
+## セットアップ（ローカル環境）
+
+
+1. **リポジトリをクローン**
+    ```bash
+    git clone git@github.com:dtct66/RagChatBot.git
+    cd ragchatbot
+    ```
 
 2. **環境変数を設定**
     プロジェクトのルートに `.env` ファイルを作成し、以下のように設定します。
@@ -48,11 +45,23 @@ cd ragchatbot
     ### **`rag/documents`ディレクトリの作成**
 - `rag`ディレクトリ内に`documents`というディレクトリを作成します。
 - このディレクトリ内にテキストファイルを追加します（例: `example.txt`）。
+    ```text
+    example.txt(ここでは架空の人物の紹介)
+    佐藤健吾（32歳）はITエンジニアで論理的かつ冷静な性格だが、登山やキャンプが好きなアクティブ派。仕事ではリーダーシップを発揮し、休日はクラフトビール巡りを楽しむ。
+    中村美咲（28歳）は広告代理店のマーケティング担当で、社交的かつ面倒見が良い。ヨガやカフェ巡り、写真撮影が趣味で、細かい気配りができるタイプ。
+    高橋颯太（25歳）はフリーランスのWebデザイナーで、自由奔放で好奇心旺盛。ストリートファッションやスケートボードを楽しみつつ、独自のアイデアで仕事に取り組む。
+    藤井莉奈（30歳）は小学校の先生で、温厚で優しい性格ながら芯が強い。読書や旅行、料理が趣味で、休日はカフェでミステリー小説を読むのが至福の時間。
+    山本悠真（35歳）は人工知能の研究者で、理論派かつ知的好奇心が旺盛。普段は無口だが好きな話題には熱くなる。ボードゲームやジョギングが趣味で、お茶目な一面も持つ。
+    ```
+## 実行画面
+<p align="center">
+  <img src="images/demo.gif" width="75%" style="max-width: 800px;">
+</p>
 
 4. **Dockerコンテナを起動**
     Dockerコンテナをビルドして、起動します。
     ```bash
-    docker-compose up --build
+    docker-compose up --build　-d
     ```
 
 
@@ -68,10 +77,13 @@ cd ragchatbot
     docker-compose exec backend python manage.py createsuperuser
     ```
 
+7. **フロントエンドのURLを検索**
+    ```bash
+    localhost:3000
+    ```
 
 
+## License
 
-
-
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
